@@ -1,4 +1,4 @@
-<form #f="ngForm">
+<form #f="ngForm" (ngSubmit)="onSubscribe(f.form)">
     <div class="form-group">
         <label for="name">Name</label>
         <input  id="name"
@@ -37,9 +37,10 @@
                 #emailFrequency="ngModel"
                 class="form-control" 
                 required>
-                    <option>Daily</option>
-                    <option>Weekly</option>
-                    <option>Monthly</option>
+                    <option *ngFor="let frequency of frequencies" 
+                            value="{{ frequency.id }}">
+                        {{ frequency.label }}
+                    </option>
             </select>
         </div>
         <div class="alert alert-danger" *ngIf="emailFrequency.touched && !emailFrequency.valid">

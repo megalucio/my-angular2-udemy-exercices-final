@@ -11,7 +11,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var SubscriptionFormComponent = (function () {
     function SubscriptionFormComponent() {
+        this.frequencies = [
+            { id: 1, label: 'Daily' },
+            { id: 2, label: 'Weekly' },
+            { id: 3, label: 'Monthly' }
+        ];
     }
+    SubscriptionFormComponent.prototype.onSubscribe = function (form) {
+        console.log(form.value);
+    };
     SubscriptionFormComponent = __decorate([
         core_1.Component({
             selector: 'subscription-form',
