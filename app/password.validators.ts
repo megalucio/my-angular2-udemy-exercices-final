@@ -2,20 +2,36 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 export class PasswordValidators {
     
-    static shouldbeAtLeatsFive(control: FormControl) {
+    static complexPassword(control: FormControl) {
 
-        if (control.value.length < 5)
-            return { shouldbeAtLeatsFive: true };
-        
+        const minLength = 5;
+         
+        if (control.value == '')
+            return null; 
+     
+        if (control.value.length < minLength)
+           
+            return { 
+                complexPassword: {
+                    minLength: minLength
+                } 
+            };
+            
         return null;
 
     }
 
      static passwordsShouldMatch(form: FormGroup) {
 
-        if (form.controls['newPass'] !== form.controls['newPassrepeated'])
-            return { passwordsShouldMatch: true };
+        var newPassword = form.controls['newPass'].value;
+        var confirmPassword = form.controls['newPassRepeated'].value;
+
+        if (newPassword == '' || confirmPassword == '')
+            return null;
         
+        if (newPassword != confirmPassword)
+            return { passwordsShouldMatch: true };
+            
         return null;
 
     }

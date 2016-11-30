@@ -2,13 +2,24 @@
 var PasswordValidators = (function () {
     function PasswordValidators() {
     }
-    PasswordValidators.shouldbeAtLeatsFive = function (control) {
-        if (control.value.length < 5)
-            return { shouldbeAtLeatsFive: true };
+    PasswordValidators.complexPassword = function (control) {
+        var minLength = 5;
+        if (control.value == '')
+            return null;
+        if (control.value.length < minLength)
+            return {
+                complexPassword: {
+                    minLength: minLength
+                }
+            };
         return null;
     };
     PasswordValidators.passwordsShouldMatch = function (form) {
-        if (form.controls['newPass'] !== form.controls['newPassrepeated'])
+        var newPassword = form.controls['newPass'].value;
+        var confirmPassword = form.controls['newPassRepeated'].value;
+        if (newPassword == '' || confirmPassword == '')
+            return null;
+        if (newPassword != confirmPassword)
             return { passwordsShouldMatch: true };
         return null;
     };

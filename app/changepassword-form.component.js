@@ -13,28 +13,21 @@ var forms_1 = require('@angular/forms');
 var password_validators_1 = require('./password.validators');
 var ChangePasswordFormComponent = (function () {
     function ChangePasswordFormComponent(fb) {
-        this.changePasswordForm = fb.group({
+        this.form = fb.group({
             oldPass: ['', forms_1.Validators.required],
             newPass: ['', forms_1.Validators.compose([
                     forms_1.Validators.required,
-                    password_validators_1.PasswordValidators.shouldbeAtLeatsFive
+                    password_validators_1.PasswordValidators.complexPassword
                 ])],
-            newPassRepeated: ['', forms_1.Validators.compose([
-                    forms_1.Validators.required,
-                ])]
+            newPassRepeated: ['', forms_1.Validators.required]
         }, { validator: password_validators_1.PasswordValidators.passwordsShouldMatch });
     }
     ChangePasswordFormComponent.prototype.onChangePassword = function () {
-        console.log(this.changePasswordForm.controls['oldPass'].value);
-        if (this.changePasswordForm.controls['oldPass'].value !== '1234') {
-            this.changePasswordForm.controls['oldPass'].setErrors({
-                invalidOldPass: true
-            });
-            console.log("Password not changed");
-        }
-        else {
-            console.log("Password succesfully changed");
-        }
+        var oldPassword = this.form.controls['oldPass'];
+        if (oldPassword.value != '1234')
+            oldPassword.setErrors({ validOldPassword: true });
+        if (this.form.valid)
+            alert("Password successfully changed.");
     };
     ChangePasswordFormComponent = __decorate([
         core_1.Component({

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import {PasswordValidators} from './password.validators';
+import { PasswordValidators } from './password.validators';
 
 @Component({
     selector: 'changepassword-form',
@@ -9,36 +9,27 @@ import {PasswordValidators} from './password.validators';
 })
 export class ChangePasswordFormComponent {
 
-    changePasswordForm: FormGroup;
+    form: FormGroup;
 
     constructor(fb: FormBuilder) {
-        this.changePasswordForm = fb.group({
+        this.form = fb.group({
             oldPass: ['', Validators.required],
             newPass: ['', Validators.compose([
-                        Validators.required, 
-                        PasswordValidators.shouldbeAtLeatsFive
-                        ])],
-            newPassRepeated: ['', Validators.compose([
-                        Validators.required,
-                        //PasswordValidators.passwordsShouldMatch
-                        ])]
-        }, {validator: PasswordValidators.passwordsShouldMatch});
+                Validators.required,
+                PasswordValidators.complexPassword
+            ])],
+            newPassRepeated: ['', Validators.required]
+        }, { validator: PasswordValidators.passwordsShouldMatch });
     }
 
     onChangePassword() {
 
-        console.log(this.changePasswordForm.controls['oldPass'].value);
+        var oldPassword = this.form.controls['oldPass'];
+        if (oldPassword.value != '1234') 
+            oldPassword.setErrors({ validOldPassword: true });
 
-        if(this.changePasswordForm.controls['oldPass'].value !== '1234'){
+        if (this.form.valid)
+            alert("Password successfully changed.");
 
-        
-            this.changePasswordForm.controls['oldPass'].setErrors({
-                invalidOldPass: true
-            });
-            console.log("Password not changed");
-        } else {
-            console.log("Password succesfully changed");
-        }
-        
     }
 }
