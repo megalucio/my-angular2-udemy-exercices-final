@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var changepassword_form_component_1 = require('./changepassword-form.component');
 var subscription_form_component_1 = require('./subscription-form.component');
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
@@ -18,8 +19,8 @@ var AppModule = (function () {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
-            declarations: [app_component_1.AppComponent, subscription_form_component_1.SubscriptionFormComponent],
+            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, forms_1.ReactiveFormsModule],
+            declarations: [app_component_1.AppComponent, subscription_form_component_1.SubscriptionFormComponent, changepassword_form_component_1.ChangePasswordFormComponent],
             bootstrap: [app_component_1.AppComponent],
         }), 
         __metadata('design:paramtypes', [])

@@ -15,7 +15,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n      <subscription-form></subscription-form>\n            "
+            template: "\n      <!--<subscription-form></subscription-form>-->\n      <changepassword-form></changepassword-form>\n            "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
