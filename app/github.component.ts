@@ -11,18 +11,11 @@ import 'rxjs/add/observable/forkJoin';
                     <i class="fa fa-spinner fa-spin fa-3x"></i>
                 </div>        
                 <h3>@{{user.login}}<h3>
-                <div class="media">
-                    <div class="media-left">
-                        <img class="media-object avatar" [src]="user.avatar_url">
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading"></h4>  
-                    </div>
-                </div>
+                <img class="media-object avatar" src="{{user.avatar_url}}">
                 <h3>Followers<h3>
                 <div *ngFor="let follower of followers" class="media">
                     <div class="media-left">
-                        <img class="media-object avatar" [src]="follower.avatar_url">
+                        <img class="media-object avatar" src="{{follower.avatar_url}}">
                     </div>
                     <div class="media-body">
                         <h4 class="media-heading">{{follower.login}}</h4>  
