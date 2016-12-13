@@ -14,14 +14,15 @@ require('rxjs/add/operator/map');
 var GitHubService = (function () {
     function GitHubService(_http) {
         this._http = _http;
-        this._userUrl = "https://api.github.com/users/octocat";
-        this._followrersUrl = "https://api.github.com/users/octocat/followers";
+        this._userUrl = "https://api.github.com/users/";
     }
-    GitHubService.prototype.getUser = function () {
-        return this._http.get(this._userUrl).map(function (response) { return response.json(); });
+    GitHubService.prototype.getUser = function (username) {
+        return this._http.get(this._userUrl + username).
+            map(function (response) { return response.json(); });
     };
-    GitHubService.prototype.getFollowers = function () {
-        return this._http.get(this._followrersUrl).map(function (response) { return response.json(); });
+    GitHubService.prototype.getFollowers = function (username) {
+        return this._http.get(this._userUrl + username + "/followers").
+            map(function (response) { return response.json(); });
     };
     GitHubService = __decorate([
         core_1.Injectable(), 
