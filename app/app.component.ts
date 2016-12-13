@@ -3,7 +3,9 @@ import { Component } from '@angular/core';
   selector: 'my-app',
   template: `
       <!--<subscription-form></subscription-form>-->
-      <changepassword-form></changepassword-form>
+      <!--<changepassword-form></changepassword-form>-->
+      <github></github>
+
             `
 })
 export class AppComponent { }
