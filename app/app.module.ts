@@ -11,9 +11,22 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, JsonpModule],
-  declarations: [AppComponent, SubscriptionFormComponent, ChangePasswordFormComponent, GitHubComponent],
-  providers:[GitHubService],
+  imports: [
+    BrowserModule, 
+    FormsModule, 
+    ReactiveFormsModule, 
+    HttpModule, 
+    JsonpModule
+  ],
+  declarations: [
+    AppComponent, 
+    SubscriptionFormComponent, 
+    ChangePasswordFormComponent, 
+    GitHubComponent
+  ],
+  providers:[
+    GitHubService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

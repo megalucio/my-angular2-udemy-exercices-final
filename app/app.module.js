@@ -22,9 +22,22 @@ var AppModule = (function () {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, forms_1.ReactiveFormsModule, http_1.HttpModule, http_1.JsonpModule],
-            declarations: [app_component_1.AppComponent, subscription_form_component_1.SubscriptionFormComponent, changepassword_form_component_1.ChangePasswordFormComponent, github_component_1.GitHubComponent],
-            providers: [github_service_1.GitHubService],
+            imports: [
+                platform_browser_1.BrowserModule,
+                forms_1.FormsModule,
+                forms_1.ReactiveFormsModule,
+                http_1.HttpModule,
+                http_1.JsonpModule
+            ],
+            declarations: [
+                app_component_1.AppComponent,
+                subscription_form_component_1.SubscriptionFormComponent,
+                changepassword_form_component_1.ChangePasswordFormComponent,
+                github_component_1.GitHubComponent
+            ],
+            providers: [
+                github_service_1.GitHubService
+            ],
             bootstrap: [app_component_1.AppComponent],
         }), 
         __metadata('design:paramtypes', [])
