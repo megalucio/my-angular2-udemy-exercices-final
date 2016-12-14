@@ -9,18 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.archives = [{ year: 2016, month: 4 }, { year: 2016, month: 2 }, { year: 2015, month: 12 }];
+var HomeComponent = (function () {
+    function HomeComponent() {
     }
-    AppComponent = __decorate([
+    HomeComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "\n      <!--<subscription-form></subscription-form>-->\n      <!--<changepassword-form></changepassword-form>-->\n      <!--<github></github>-->\n      <ul>\n        <li *ngFor=\"let archive of archives\">\n          <a routerLink=\"/{{archive.year}}/{{archive.month}}\" routerLinkActive=\"active\">\n            {{archive.year}}/{{archive.month}}\n          </a>\n        </li>\n      </ul>\n      <router-outlet></router-outlet>\n\n            "
+            selector: 'home',
+            template: "\n        <h3>Home</h3>\n    "
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], HomeComponent);
+    return HomeComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.HomeComponent = HomeComponent;
+//# sourceMappingURL=home.component.js.map
